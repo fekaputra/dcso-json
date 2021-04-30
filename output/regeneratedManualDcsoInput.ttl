@@ -1,0 +1,104 @@
+@prefix :      <https://w3id.org/dcso/ns/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcam:  <http://purl.org/dc/dcam/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix ns:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcsx:  <https://w3id.org/dcso/ns/extension#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:    <https://w3id.org/dcso/id/example/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcso:  <https://w3id.org/dcso/ns/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix wot:   <http://xmlns.com/wot/0.1/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+[ rdf:type                   dcso:DMP ;
+  terms:created              "2019-09-18T00:00:00" ;
+  terms:description          "This DMP serves to characterize the functioning of the Unidade de Genómica at the Instituto Gulbenkian para a Ciência in Oeiras." ;
+  terms:modified             "2019-09-18T00:00:00" ;
+  terms:title                "Unidade de Genómica " ;
+  dcso:ethical_issues_exist  "unknown" ;
+  dcso:hasContact            [ foaf:mbox              "rleite@igc.gulbenkian.pt" ;
+                               foaf:name              "Ricardo Leite" ;
+                               dcso:hasContactId      [ terms:identifier      "0000-0002-9622-3895" ;
+                                                        dcso:identifier_type  "orcid"
+                                                      ] ;
+                               dcso:hasContributorId  []  ;
+                               dcso:role              "Project Leader"
+                             ] ;
+  dcso:hasContributor        [ foaf:mbox              "sladeiro@igc.gulbenkian.pt" ;
+                               foaf:name              "Susana Ladeiro" ;
+                               dcso:hasContributorId  [ terms:identifier      "0000-0003-4333-2008" ;
+                                                        dcso:identifier_type  "orcid"
+                                                      ] ;
+                               dcso:role              "Data Collector"
+                             ] ;
+  dcso:hasContributor        []  ;
+  dcso:hasCost               [ terms:description     "The cost of buying and maintaining equipment for the laboratory." ;
+                               terms:title           "Equipment" ;
+                               dcso:hasCurrencyCode  []  ;
+                               dcso:value            100000
+                             ] ;
+  dcso:hasDMPId              [ terms:identifier      "https://www.dropbox.com/s/rfu5nyo0s1wx9ju/DMP.Unidade.Genomica.1.0.json?dl=0" ;
+                               dcso:identifier_type  "url"
+                             ] ;
+  dcso:hasDataset            [ terms:description            "Quality Control of DNA and RNA " ;
+                               terms:issued                 "2019-09-18T00:00:00" ;
+                               terms:title                  "Quality Check QC " ;
+                               dcso:data_quality_assurance  "RIM and DIM for RNA and DNA QC " ;
+                               dcso:hasDatasetId            [ terms:identifier      "doi:10.1038/nphys1170" ;
+                                                              dcso:identifier_type  "doi"
+                                                            ] ;
+                               dcso:hasDistribution         [ terms:description     "Files will be stored in xls and pfd in the storage server (AFS) " ;
+                                                              terms:format          "application/pdf" ;
+                                                              terms:title           "Quality control file " ;
+                                                              dcat:access_url       "http://example.org/example_url" ;
+                                                              dcat:download_url     "http://example.org/example_url" ;
+                                                              dcso:available_until  "2022-01-01T00:00:00 " ;
+                                                              dcso:data_access      "shared" ;
+                                                              dcso:hasHost          [ terms:description        "Storage server (AFS) managed by IGC IT " ;
+                                                                                      terms:title              "AFS Server" ;
+                                                                                      dcso:availability        9.95E1 ;
+                                                                                      dcso:backup_frequency    "daily" ;
+                                                                                      dcso:backup_type         "hard drive" ;
+                                                                                      dcso:certified_with      "none" ;
+                                                                                      dcso:hasGeoLocation      []  ;
+                                                                                      dcso:pid_system          "none" ;
+                                                                                      dcso:support_versioning  "no"
+                                                                                    ] ;
+                                                              dcso:hasLicense       [ dcso:license_ref  "https://creativecommons.org/licenses/by/4.0" ;
+                                                                                      dcso:start_date   "2022-01-01T00:00:00 "
+                                                                                    ]
+                                                            ] ;
+                               dcso:hasSecurityPrivacy      [ terms:description  "Used index and sample name (sample sheet) " ;
+                                                              terms:title        "Access"
+                                                            ] ;
+                               dcso:hasTechnicalResource    [ terms:description  "https://www.illumina.com/systems/sequencing-platforms/miseq.html " ;
+                                                              terms:title        "Ilumina sequencer"
+                                                            ] ;
+                               dcso:personal_data           "no" ;
+                               dcso:preservation_statement  "Keep record" ;
+                               dcso:sensitive_data          "no" ;
+                               dcso:type                    "http://purl.org/coar/resource_type/c_18gh"
+                             ] ;
+  dcso:hasProject            [ terms:description  "ONEIDA is a consortium established between Instituto de Tecnologia Química e Biológica António Xavier (ITQB NOVA), Instituto Gulbenkian de Ciência (IGC) and Instituto de Medicina Molecular (iMM) to match the urgent need for effective solutions in the prevention and control of infectious diseases and ­antibiotic resistance. " ;
+                               terms:title        "ONEIDA" ;
+                               dcso:end           "2020-12-01T00:00:00 " ;
+                               dcso:hasFunding    [ dcso:funding_status  "granted" ;
+                                                    dcso:hasFunderId     [ terms:identifier      "http://dx.doi.org/10.13039/501100000780" , "https://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/sequencing-sheet-format-specifications-technical-note-970-2017-004.pdf" ;
+                                                                           dcso:identifier_type  "url" , "fundref"
+                                                                         ] ;
+                                                    dcso:hasGrantId      [ terms:identifier      "03/SAICT/2015" ;
+                                                                           dcso:identifier_type  "other"
+                                                                         ]
+                                                  ] ;
+                               dcso:start         "2017-01-01T00:00:00 "
+                             ]
+] .
