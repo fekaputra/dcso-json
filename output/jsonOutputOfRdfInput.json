@@ -4,9 +4,6 @@
         "description": "This DMP is for our new project.",
         "modified": "2019-12-06T11:33:05.619Z",
         "title": "DMP for our new project",
-        "ethical_issues_description": "Ethical issues are handled by ...",
-        "ethical_issues_exist": "yes",
-        "ethical_issues_report": "https://docs.google.com/document/d/xyz",
         "contact": {
             "mbox": "john.smith@tuwien.ac.at",
             "name": "John Smith",
@@ -28,6 +25,17 @@
                 ]
             },
             {
+                "mbox": "leo.messi@barcelona.com",
+                "name": "Leo Messi",
+                "contributor_id": {
+                    "identifier": "https://orcid.org/0000-0002-0000-0000",
+                    "type": "orcid"
+                },
+                "role": [
+                    "ProjectLeader"
+                ]
+            },
+            {
                 "mbox": "robert@bayern.de",
                 "name": "Robert Lewandowski",
                 "contributor_id": {
@@ -38,23 +46,8 @@
                     "ContactPerson",
                     "DataManager"
                 ]
-            },
-            {
-                "mbox": "leo.messi@barcelona.com",
-                "name": "Leo Messi",
-                "contributor_id": {
-                    "identifier": "https://orcid.org/0000-0002-0000-0000",
-                    "type": "orcid"
-                },
-                "role": [
-                    "ProjectLeader"
-                ]
             }
         ],
-        "dmp_id": {
-            "identifier": "https://doi.org/10.0000/00.0.1234",
-            "type": "doi"
-        },
         "dataset": [
             {
                 "description": "Some test scripts",
@@ -76,8 +69,8 @@
                         "url": "https://www.re3data.org/repository/r3d100010375"
                     },
                     "license": {
-                        "start": "2020-09-30",
-                        "license_ref": "http://opensource.org/licenses/mit-license.php"
+                        "license_ref": "http://opensource.org/licenses/mit-license.php",
+                        "start_date": "2020-09-30"
                     }
                 },
                 "type": "Source code",
@@ -105,8 +98,8 @@
                         "url": "https://www.re3data.org/repository/r3d100010468"
                     },
                     "license": {
-                        "start": "2021-01-01",
-                        "license_ref": "http://creativecommons.org/licenses/by/4.0/"
+                        "license_ref": "http://creativecommons.org/licenses/by/4.0/",
+                        "start_date": "2021-01-01"
                     }
                 },
                 "type": "other",
@@ -130,22 +123,47 @@
                 "sensitive_data": "yes"
             }
         ],
-        "project": {
-            "description": "<p>The capabilities of the latest generation of Earth observation satellites to collect large volumes of diverse and thematically rich data are unprecedented. For exploiting these valuable data sets, many research and industry groups have started to shift their processing into the cloud. Although the functionalities of existing cloud computing solutions largely overlap, there are all custom-made and tailored to the specific data infrastructures. This lack of standards not only makes it hard for end users and application developers to develop generic front-ends, but also to compare the cloud offerings by running the same analysis against different cloud back-ends. To solve this, a common interface that allows end- and intermediate users to query cloud-based back offices and carry out computations on them in a simple way is needed. The openEO project will design such an interface, implement it as an open source community project, bind it to generic analytics front-ends and evaluate it against a set of relevant Earth observation cloud back offices. The openEO interface will consist of three layers of Application Programming Interfaces, namely a core API for finding, accessing, and processing large datasets, a driver APIs to connect to back offices operated by European and worldwide industry, and client APIs for analysing these datasets using R, Python and JavaScript. To demonstrate the capability of the openEO interface, four use cases based chiefly on Sentinel-1 and Sentinel-2 time series will be implemented. openEO will simplify the use of cloud-based processing engines, allow switching between cloud-based back office providers and comparing them, and enable reproducible, open Earth observation science. Thereby, openEO reduces the entry barriers for the adaptation of cloud computing technologies by a broad user community and paves the way for the federation of infrastructure capabilities.</p><p> </p>",
-            "title": "openEO - a common, open source interface between Earth Observation data infrastructures and front-end applications",
-            "end": "2020-09-30",
-            "start": "2017-10-01",
-            "funding": {
-                "funder_id": {
-                    "identifier": "",
-                    "type": "other"
-                },
-                "grant_id": {
-                    "identifier": "EO-2-2017",
-                    "type": "other"
+        "dmp_id": {
+            "identifier": "https://doi.org/10.0000/00.0.1234",
+            "type": "doi"
+        },
+        "ethical_issues_description": "Ethical issues are handled by ...",
+        "ethical_issues_exist": "yes",
+        "ethical_issues_report": "https://docs.google.com/document/d/xyz",
+        "language": "eng",
+        "project": [
+            {
+                "description": "dummy 2",
+                "title": "openEO2",
+                "end": "2020-09-30",
+                "start": "2017-10-01",
+                "funding": {
+                    "funder_id": {
+                        "identifier": "",
+                        "type": "other"
+                    },
+                    "grant_id": {
+                        "identifier": "EO-3-2017",
+                        "type": "other"
+                    }
+                }
+            },
+            {
+                "description": "<p>The capabilities of the latest generation of Earth observation satellites to collect large volumes of diverse and thematically rich data are unprecedented. For exploiting these valuable data sets, many research and industry groups have started to shift their processing into the cloud. Although the functionalities of existing cloud computing solutions largely overlap, there are all custom-made and tailored to the specific data infrastructures. This lack of standards not only makes it hard for end users and application developers to develop generic front-ends, but also to compare the cloud offerings by running the same analysis against different cloud back-ends. To solve this, a common interface that allows end- and intermediate users to query cloud-based back offices and carry out computations on them in a simple way is needed. The openEO project will design such an interface, implement it as an open source community project, bind it to generic analytics front-ends and evaluate it against a set of relevant Earth observation cloud back offices. The openEO interface will consist of three layers of Application Programming Interfaces, namely a core API for finding, accessing, and processing large datasets, a driver APIs to connect to back offices operated by European and worldwide industry, and client APIs for analysing these datasets using R, Python and JavaScript. To demonstrate the capability of the openEO interface, four use cases based chiefly on Sentinel-1 and Sentinel-2 time series will be implemented. openEO will simplify the use of cloud-based processing engines, allow switching between cloud-based back office providers and comparing them, and enable reproducible, open Earth observation science. Thereby, openEO reduces the entry barriers for the adaptation of cloud computing technologies by a broad user community and paves the way for the federation of infrastructure capabilities.</p><p> </p>",
+                "title": "openEO - a common, open source interface between Earth Observation data infrastructures and front-end applications",
+                "end": "2020-09-30",
+                "start": "2017-10-01",
+                "funding": {
+                    "funder_id": {
+                        "identifier": "",
+                        "type": "other"
+                    },
+                    "grant_id": {
+                        "identifier": "EO-2-2017",
+                        "type": "other"
+                    }
                 }
             }
-        },
-        "language": "eng"
+        ]
     }
 }

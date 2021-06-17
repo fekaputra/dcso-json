@@ -1,0 +1,146 @@
+@prefix :      <https://w3id.org/madmp/terms#> .
+@prefix schema: <http://schema.org/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix ns:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dcam:  <http://purl.org/dc/dcam/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcsx:  <https://w3id.org/dcso/ns/extension#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:    <https://w3id.org/dcso/id/example/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix wot:   <http://xmlns.com/wot/0.1/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix madmp: <https://w3id.org/madmp/terms#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+[ rdf:type                     madmp:DMP ;
+  terms:created                "2019-12-06T11:33:05.619Z" ;
+  terms:description            "This DMP is for our new project." ;
+  terms:modified               "2019-12-06T11:33:05.619Z" ;
+  terms:title                  "DMP for our new project" ;
+  madmp:contact                [ foaf:mbox         "john.smith@tuwien.ac.at" ;
+                                 foaf:name         "John Smith" ;
+                                 madmp:contact_id  [ terms:identifier       "https://www.tiss.tuwien.ac.at/person/2351952424" ;
+                                                     madmp:identifier_type  "other"
+                                                   ]
+                               ] ;
+  madmp:contributor            [ foaf:mbox             "leo.messi@barcelona.com" ;
+                                 foaf:name             "Leo Messi" ;
+                                 madmp:contributor_id  [ terms:identifier       "https://orcid.org/0000-0002-0000-0000" ;
+                                                         madmp:identifier_type  "orcid"
+                                                       ] ;
+                                 madmp:role            ( "ProjectLeader" )
+                               ] ;
+  madmp:contributor            [ foaf:mbox             "robert@bayern.de" ;
+                                 foaf:name             "Robert Lewandowski" ;
+                                 madmp:contributor_id  [ terms:identifier       "https://orcid.org/0000-0002-4929-7875" ;
+                                                         madmp:identifier_type  "orcid"
+                                                       ] ;
+                                 madmp:role            ( "ContactPerson" "DataManager" )
+                               ] ;
+  madmp:contributor            [ foaf:mbox             "CR@juve.it" ;
+                                 foaf:name             "Cristiano Ronaldo" ;
+                                 madmp:contributor_id  [ terms:identifier       "https://www.tiss.tuwien.ac.at/person/305962565" ;
+                                                         madmp:identifier_type  "other"
+                                                       ] ;
+                                 madmp:role            ( "DataCurator" )
+                               ] ;
+  madmp:dataset                [ terms:description      "Images of test object X" ;
+                                 terms:title            "Image collection" ;
+                                 madmp:dataset_id       [ terms:identifier       "https://hdl.handle.net/0000/00.00000" ;
+                                                          madmp:identifier_type  "handle"
+                                                        ] ;
+                                 madmp:distribution     [ terms:title        "Planned distribution" ;
+                                                          dcat:byteSize      50000000000 ;
+                                                          madmp:data_access  "closed"
+                                                        ] ;
+                                 madmp:identifier_type  "Images" ;
+                                 madmp:personal_data    "no" ;
+                                 madmp:sensitive_data   "yes"
+                               ] ;
+  madmp:dataset                [ terms:description      "Some test scripts" ;
+                                 terms:title            "Client application" ;
+                                 madmp:dataset_id       [ terms:identifier       "https://hdl.handle.net/0000/00.00000" ;
+                                                          madmp:identifier_type  "handle"
+                                                        ] ;
+                                 madmp:distribution     [ terms:title            "Planned distribution" ;
+                                                          dcat:byteSize          1000000000 ;
+                                                          madmp:available_until  "2030-09-30" ;
+                                                          madmp:data_access      "open" ;
+                                                          madmp:hasHost          [ terms:description   "GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over three million people use GitHub to build amazing things together. With the collaborative features of GitHub.com, our desktop and mobile apps, and GitHub Enterprise, it has never been easier for individuals and teams to write better code, faster. Originally founded by Tom Preston-Werner, Chris Wanstrath, and PJ Hyett to simplify sharing code, GitHub has grown into the largest code host in the world." ;
+                                                                                   terms:title         "GitHub" ;
+                                                                                   madmp:pid_system    "other" ;
+                                                                                   madmp:storage_type  "repository" ;
+                                                                                   madmp:url           "https://www.re3data.org/repository/r3d100010375"
+                                                                                 ] ;
+                                                          madmp:license          [ madmp:license_ref  "http://opensource.org/licenses/mit-license.php" ;
+                                                                                   madmp:start_date   "2020-09-30"
+                                                                                 ]
+                                                        ] ;
+                                 madmp:identifier_type  "Source code" ;
+                                 madmp:personal_data    "no" ;
+                                 madmp:sensitive_data   "no"
+                               ] ;
+  madmp:dataset                [ terms:description      "Audio recordings with test persons" ;
+                                 terms:title            "Interviews" ;
+                                 madmp:dataset_id       [ terms:identifier       "https://hdl.handle.net/0000/00.00000" ;
+                                                          madmp:identifier_type  "handle"
+                                                        ] ;
+                                 madmp:distribution     [ terms:format           "audio/mpeg" ;
+                                                          terms:title            "Planned distribution" ;
+                                                          dcat:byteSize          439705600 ;
+                                                          madmp:available_until  "2031-08-01" ;
+                                                          madmp:data_access      "open" ;
+                                                          madmp:hasHost          [ terms:description   "ZENODO builds and operates a simple and innovative service that enables researchers, scientists, EU projects and institutions to share and showcase multidisciplinary research results (data and publications) that are not part of the existing institutional or subject-based repositories of the research communities.\nZENODO enables researchers, scientists, EU projects and institutions to:\neasily share the long tail of small research results in a wide variety of formats including text, spreadsheets, audio, video, and images across all fields of science.\ndisplay their research results and get credited by making the research results citable and integrate them into existing reporting lines to funding agencies like the European Commission.\neasily access and reuse shared research results." ;
+                                                                                   terms:title         "Zenodo" ;
+                                                                                   madmp:pid_system    "doi" ;
+                                                                                   madmp:storage_type  "repository" ;
+                                                                                   madmp:url           "https://www.re3data.org/repository/r3d100010468"
+                                                                                 ] ;
+                                                          madmp:license          [ madmp:license_ref  "http://creativecommons.org/licenses/by/4.0/" ;
+                                                                                   madmp:start_date   "2021-01-01"
+                                                                                 ]
+                                                        ] ;
+                                 madmp:identifier_type  "other" ;
+                                 madmp:personal_data    "yes" ;
+                                 madmp:sensitive_data   "no"
+                               ] ;
+  madmp:dmp_id                 [ terms:identifier       "https://doi.org/10.0000/00.0.1234" ;
+                                 madmp:identifier_type  "doi"
+                               ] ;
+  madmp:ethical_issues_description
+          "Ethical issues are handled by ..." ;
+  madmp:ethical_issues_exist   "yes" ;
+  madmp:ethical_issues_report  "https://docs.google.com/document/d/xyz" ;
+  madmp:language               "eng" ;
+  madmp:project                [ terms:description  "dummy 2" ;
+                                 terms:title        "openEO2" ;
+                                 dcat:endDate       "2020-09-30" ;
+                                 dcat:startDate     "2017-10-01" ;
+                                 madmp:funding      [ madmp:funder_id  [ terms:identifier       "" ;
+                                                                         madmp:identifier_type  "other"
+                                                                       ] ;
+                                                      madmp:grant_id   [ terms:identifier       "EO-3-2017" ;
+                                                                         madmp:identifier_type  "other"
+                                                                       ]
+                                                    ]
+                               ] ;
+  madmp:project                [ terms:description  "<p>The capabilities of the latest generation of Earth observation satellites to collect large volumes of diverse and thematically rich data are unprecedented. For exploiting these valuable data sets, many research and industry groups have started to shift their processing into the cloud. Although the functionalities of existing cloud computing solutions largely overlap, there are all custom-made and tailored to the specific data infrastructures. This lack of standards not only makes it hard for end users and application developers to develop generic front-ends, but also to compare the cloud offerings by running the same analysis against different cloud back-ends. To solve this, a common interface that allows end- and intermediate users to query cloud-based back offices and carry out computations on them in a simple way is needed. The openEO project will design such an interface, implement it as an open source community project, bind it to generic analytics front-ends and evaluate it against a set of relevant Earth observation cloud back offices. The openEO interface will consist of three layers of Application Programming Interfaces, namely a core API for finding, accessing, and processing large datasets, a driver APIs to connect to back offices operated by European and worldwide industry, and client APIs for analysing these datasets using R, Python and JavaScript. To demonstrate the capability of the openEO interface, four use cases based chiefly on Sentinel-1 and Sentinel-2 time series will be implemented. openEO will simplify the use of cloud-based processing engines, allow switching between cloud-based back office providers and comparing them, and enable reproducible, open Earth observation science. Thereby, openEO reduces the entry barriers for the adaptation of cloud computing technologies by a broad user community and paves the way for the federation of infrastructure capabilities.</p><p> </p>" ;
+                                 terms:title        "openEO - a common, open source interface between Earth Observation data infrastructures and front-end applications" ;
+                                 dcat:endDate       "2020-09-30" ;
+                                 dcat:startDate     "2017-10-01" ;
+                                 madmp:funding      [ madmp:funder_id  [ terms:identifier       "" ;
+                                                                         madmp:identifier_type  "other"
+                                                                       ] ;
+                                                      madmp:grant_id   [ terms:identifier       "EO-2-2017" ;
+                                                                         madmp:identifier_type  "other"
+                                                                       ]
+                                                    ]
+                               ]
+] .
