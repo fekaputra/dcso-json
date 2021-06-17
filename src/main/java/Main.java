@@ -15,8 +15,8 @@ import java.util.Map;
 
 public class Main {
 
-    private static Property hasDMP = ResourceFactory.createProperty("https://w3id.org/dcso/ns/core#", "hasDMP");
-    private static Resource clsDMP = ResourceFactory.createResource("https://w3id.org/dcso/ns/core#DMP");
+    private static Property propertyDMP = ResourceFactory.createProperty("https://w3id.org/madmp/terms#", "dmp");
+    private static Resource clsDMP = ResourceFactory.createResource("https://w3id.org/madmp/terms#DMP");
     private static Resource namedIndividual = ResourceFactory.createResource(OWL.NS + "NamedIndividual");
 
     private File writeJson(JsonValue jsonValue, File outputFile) throws IOException {
@@ -44,7 +44,7 @@ public class Main {
 
     public Model dmpJsonToJenaModel(File dmpJsonFile, File contextFile, Boolean adjustDMP) throws JsonLdError, FileNotFoundException {
         Model dcso = ModelFactory.createDefaultModel();
-        RDFDataMgr.read(dcso, new FileInputStream("library/dcso.ttl"), Lang.TURTLE);
+        RDFDataMgr.read(dcso, new FileInputStream("library/madmp-1.1.0.ttl"), Lang.TURTLE);
 
         Model model = ModelFactory.createDefaultModel();
         model.setNsPrefixes(dcso.getNsPrefixMap());
@@ -55,7 +55,7 @@ public class Main {
 
         // hack to ensure correct DMP class representation
         if (adjustDMP) {
-            Statement hasDMPStmt = model.getProperty(null, hasDMP);
+            Statement hasDMPStmt = model.getProperty(null, propertyDMP);
             model.add((Resource) hasDMPStmt.getObject(), RDF.type, clsDMP);
             model.remove(hasDMPStmt);
         }
@@ -70,7 +70,7 @@ public class Main {
         // hack to ensure correct DMP class representation
         if (adjustDMP) {
             Statement hasDMPStmt = model.listStatements(null, RDF.type, clsDMP).next();
-            model.add(model.createResource(), hasDMP, hasDMPStmt.getSubject());
+            model.add(model.createResource(), propertyDMP, hasDMPStmt.getSubject());
             model.removeAll(null, RDF.type, namedIndividual);
         }
 
@@ -116,34 +116,34 @@ public class Main {
     }
 
     public static void main(String[] args) throws JsonLdError, IOException {
-        File manualJsonInput = new File("examples/ex9-dmp-long.json");
-        File manualTurtleInput = new File("examples/dmp.example.1.0.0.ttl");
-        File context = new File("library/dcso.jsonld");
+        File jsonInput = new File("examples/ex9-dmp-long.json");
+        File turtleInput = new File("examples/ex-1-generated.ttl");
+        File context = new File("library/madmp-1.1.0.jsonld");
 
         Main main = new Main();
 
-        File dcsoOutputOfManualJsonInput = new File("output/dcsoOutputOfManualJsonInput.ttl");
-        File regeneratedManualJsonInput = new File("output/regeneratedManualJsonInput.json");
+        File rdfOutputOfJsonInput = new File("output/rdfOutputOfJsonInput.ttl");
+        File regeneratedJsonInput = new File("output/regeneratedJsonInput.json");
 
         // transform manually created maDMP JSON to DCSO
-        Model tempModel = main.dmpJsonToJenaModel(manualJsonInput, context, true);
-        RDFDataMgr.write(new FileOutputStream(dcsoOutputOfManualJsonInput), tempModel, Lang.TURTLE);
+        Model tempModel = main.dmpJsonToJenaModel(jsonInput, context, true);
+        RDFDataMgr.write(new FileOutputStream(rdfOutputOfJsonInput), tempModel, Lang.TURTLE);
 
         // transform generated DCSO back to maDMP JSON
         JsonObject tempJsonObject = main.jenaModelToJsonObject(tempModel, context, true);
-        main.writeJson(tempJsonObject, regeneratedManualJsonInput);
+        main.writeJson(tempJsonObject, regeneratedJsonInput);
+
+        File jsonOutputOfRdfInput = new File("output/jsonOutputOfRdfInput.json");
+        File regeneratedRdfInput = new File("output/regeneratedRdfInput.ttl");
 
         // transform manually created DCSO instance to maDMP JSON
-        File jsonOutputOfManualDcsoInput = new File("output/jsonOutputOfManualDcsoInput.json");
-        File regeneratedManualDcsoInput = new File("output/regeneratedManualDcsoInput.ttl");
         tempModel = ModelFactory.createDefaultModel();
-        RDFDataMgr.read(tempModel, new FileInputStream(manualTurtleInput), Lang.TURTLE);
+        RDFDataMgr.read(tempModel, new FileInputStream(turtleInput), Lang.TURTLE);
         tempJsonObject = main.jenaModelToJsonObject(tempModel, context, true);
-        main.writeJson(tempJsonObject, jsonOutputOfManualDcsoInput);
-
+        main.writeJson(tempJsonObject, jsonOutputOfRdfInput);
 
         // transform generated maDMP JSON to back to DCSO
-        tempModel = main.dmpJsonToJenaModel(jsonOutputOfManualDcsoInput, context, true);
-        RDFDataMgr.write(new FileOutputStream(regeneratedManualDcsoInput), tempModel, Lang.TURTLE);
+        tempModel = main.dmpJsonToJenaModel(jsonOutputOfRdfInput, context, true);
+        RDFDataMgr.write(new FileOutputStream(regeneratedRdfInput), tempModel, Lang.TURTLE);
     }
 }
