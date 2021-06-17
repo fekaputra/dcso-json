@@ -1,0 +1,665 @@
+@prefix : <https://w3id.org/madmp/terms#> .
+@prefix ex: <https://w3id.org/dcso/id/example/> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix madmp: <https://w3id.org/madmp/terms#> .
+@prefix dcsx: <https://w3id.org/dcso/ns/extension#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <https://w3id.org/madmp/terms> .
+
+<https://w3id.org/madmp/terms> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://w3id.org/madmp/terms/1.1.0> ;
+                                terms:contributor "Fajar J. Ekaputra" ,
+                                                  "João Cardoso" ,
+                                                  "Leyla Garcia" ,
+                                                  "Marie Christine Jacquemot" ;
+                                terms:creator "Paul Walk" ,
+                                              "Peter Neish" ,
+                                              "Tomasz Miksa" ;
+                                terms:description "This ontology represent the machine-actionable Data Management Plans (maDMP) using the Web Ontology Language (OWL). The versioning of this ontology mirrors the RDA DMP Common Standard for maDMP."@en ;
+                                terms:rights "http://creativecommons.org/licenses/by/4.0/" ;
+                                terms:title "The machine-actionable Data Management Plans ontology."@en ;
+                                vann:preferredNamespacePrefix "madmp" ;
+                                rdfs:seeAlso <https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard#> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+terms:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/madmp/terms#contact
+:contact rdf:type owl:ObjectProperty ;
+         rdfs:domain :DMP ;
+         rdfs:range :Contact ;
+         rdfs:comment "Any Contact that can provide information on this DMP."^^rdfs:Literal ;
+         rdfs:label "contact" .
+
+
+###  https://w3id.org/madmp/terms#contact_id
+:contact_id rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :id ;
+            rdfs:domain :Contact ;
+            rdfs:range :ID ;
+            rdfs:comment "Any ID used to uniquely identified this Contact." ;
+            rdfs:label "contact id" .
+
+
+###  https://w3id.org/madmp/terms#contributor
+:contributor rdf:type owl:ObjectProperty ;
+             rdfs:domain :DMP ;
+             rdfs:range :Contributor ;
+             rdfs:comment "Any Contributor involved in the process of the data management described by this DMP as well as any Contributor involved in the creation and management of this DMP itself." ;
+             rdfs:label "contributor" .
+
+
+###  https://w3id.org/madmp/terms#contributor_id
+:contributor_id rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :id ;
+                rdfs:domain :Contributor ;
+                rdfs:range :ID ;
+                rdfs:comment "Any ID used to uniquely identified this Contributor." ;
+                rdfs:label "contributor id" .
+
+
+###  https://w3id.org/madmp/terms#cost
+:cost rdf:type owl:ObjectProperty ;
+      rdfs:domain :DMP ;
+      rdfs:range :Cost ;
+      rdfs:comment "Any Cost related to data management included in this DMP." ;
+      rdfs:label "cost" .
+
+
+###  https://w3id.org/madmp/terms#dataset
+:dataset rdf:type owl:ObjectProperty ;
+         rdfs:domain :DMP ;
+         rdfs:range :Dataset ;
+         rdfs:comment "Any Dataset considered under this DMP." ;
+         rdfs:label "dataset" .
+
+
+###  https://w3id.org/madmp/terms#dataset_id
+:dataset_id rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :id ;
+            rdfs:domain :Dataset ;
+            rdfs:range :ID ;
+            rdfs:comment "Any ID used to uniquely identified this Dataset." ;
+            rdfs:label "dataset id" .
+
+
+###  https://w3id.org/madmp/terms#distribution
+:distribution rdf:type owl:ObjectProperty ;
+              rdfs:domain :Dataset ;
+              rdfs:range :Distribution ;
+              rdfs:comment "Any Distribution, i.e., specific instance, of this Dataset." ;
+              rdfs:label "distribution" .
+
+
+###  https://w3id.org/madmp/terms#dmp_id
+:dmp_id rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :id ;
+        rdfs:domain :DMP ;
+        rdfs:range :ID ;
+        rdfs:comment "Any ID used to uniquely identified this DMP."^^xsd:string ;
+        rdfs:label "dmp id" .
+
+
+###  https://w3id.org/madmp/terms#funder_id
+:funder_id rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :id ;
+           rdfs:domain :Funding ;
+           rdfs:range :ID ;
+           rdfs:comment "Any ID used to uniquely identified this Funder." ;
+           rdfs:label "funder id" .
+
+
+###  https://w3id.org/madmp/terms#funding
+:funding rdf:type owl:ObjectProperty ;
+         rdfs:domain :Project ;
+         rdfs:range :Funding ;
+         rdfs:comment "Any Funding granted for this Project." ;
+         rdfs:label "funding" .
+
+
+###  https://w3id.org/madmp/terms#grant_id
+:grant_id rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :id ;
+          rdfs:domain :Funding ;
+          rdfs:range :ID ;
+          rdfs:comment "Any ID used to uniquely identified a Grant associated to this Funder." ;
+          rdfs:label "grant id" .
+
+
+###  https://w3id.org/madmp/terms#host
+:host rdf:type owl:ObjectProperty ;
+      rdfs:domain :Distribution ;
+      rdfs:range :Host ;
+      rdfs:comment "Any Host, i., storage system, where this Distribution has been stored." ;
+      rdfs:label "host" .
+
+
+###  https://w3id.org/madmp/terms#id
+:id rdf:type owl:ObjectProperty ;
+    rdfs:range :ID ;
+    rdfs:comment "Any ID used to uniquely identified a Thing." ;
+    rdfs:label "id" .
+
+
+###  https://w3id.org/madmp/terms#license
+:license rdf:type owl:ObjectProperty ;
+         rdfs:domain :Distribution ;
+         rdfs:range :License ;
+         rdfs:comment "A License used for this Distribution." ;
+         rdfs:label "license" .
+
+
+###  https://w3id.org/madmp/terms#metadata
+:metadata rdf:type owl:ObjectProperty ;
+          rdfs:domain :DMP ;
+          rdfs:range :Metadata ;
+          rdfs:comment "A Metadata standard used to describe data in this Dataset." ;
+          rdfs:label "metadata" .
+
+
+###  https://w3id.org/madmp/terms#metadata_standard_id
+:metadata_standard_id rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :id ;
+                      rdfs:domain :Metadata ;
+                      rdfs:range :ID ;
+                      rdfs:comment "Any ID used to uniquely identified this Metadata standard." ;
+                      rdfs:label "metadata standard id" .
+
+
+###  https://w3id.org/madmp/terms#project
+:project rdf:type owl:ObjectProperty ;
+         rdfs:domain :DMP ;
+         rdfs:range :Project ;
+         rdfs:comment "Any Project associated with this DMP." ;
+         rdfs:label "project" .
+
+
+###  https://w3id.org/madmp/terms#security_and_privacy
+:security_and_privacy rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Dataset ;
+                      rdfs:range :SecurityPrivacy ;
+                      rdfs:comment "Any specific requirements related to security and privacy of this Dataset." ;
+                      rdfs:label "security and privacy" .
+
+
+###  https://w3id.org/madmp/terms#technical_resource
+:technical_resource rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Dataset ;
+                    rdfs:range :TechnicalResource ;
+                    rdfs:comment "Any Technical Resource, e.g, microscope, needed/used to create or process the data in this Dataset." ;
+                    rdfs:label "technical resource" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/terms/format
+terms:format rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/issued
+terms:issued rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#accessURL
+dcat:accessURL rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#byteSize
+dcat:byteSize rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#downloadURL
+dcat:downloadURL rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+dcat:keyword rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/madmp/terms#availability
+:availability rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Host ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Indicates the availability of the host" ;
+              rdfs:label "availability" .
+
+
+###  https://w3id.org/madmp/terms#available_until
+:available_until rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Distribution ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "Indicates how long this distribution will be/ should be available" ;
+                 rdfs:label "available until" .
+
+
+###  https://w3id.org/madmp/terms#backup_frequency
+:backup_frequency rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Host ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Backup frequency" ;
+                  rdfs:label "backup frequency" .
+
+
+###  https://w3id.org/madmp/terms#backup_type
+:backup_type rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Host ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Backup type" ;
+             rdfs:label "backup type" .
+
+
+###  https://w3id.org/madmp/terms#certified_with
+:certified_with rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Host ;
+                rdfs:range xsd:string ;
+                rdfs:comment """Repository certified to a recognised standard
+                                Suggested values:
+
+                                    din31644
+                                    dini-zertifikat
+                                    dsa
+                                    iso16363
+                                    iso16919
+                                    trac
+                                    wds
+                                    coretrustseal
+                                    none
+                                    other
+                                    unknown""" ,
+                             "Validation with ShEx/SHACL" ;
+                rdfs:label "certified with" .
+
+
+###  https://w3id.org/madmp/terms#currency_code
+:currency_code rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Cost ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Currency code defined by ISO 4217." ;
+               rdfs:label "currency code" .
+
+
+###  https://w3id.org/madmp/terms#data_access
+:data_access rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Dataset ;
+             rdfs:range xsd:string ;
+             rdfs:comment """Indicates access mode for data.
+                            Allowed Values:
+                                open
+                                shared
+                                closed""" ;
+             rdfs:label "data access" .
+
+
+###  https://w3id.org/madmp/terms#data_quality_assurance
+:data_quality_assurance rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Dataset ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Assurance quality of data" ;
+                        rdfs:label "data quality assurance" .
+
+
+###  https://w3id.org/madmp/terms#dataset_type
+:dataset_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Dataset ;
+              rdfs:range xsd:string ;
+              rdfs:comment "If appropriate, type according to: DataCite and/or COAR dictionary. Otherwise use the common name for the type, e.g. raw data, software, survey, etc. https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf http://vocabularies.coar-repositories.org/pubby/resource_type.html" ;
+              rdfs:label "dataset type" .
+
+
+###  https://w3id.org/madmp/terms#end
+:end rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Project ;
+     rdfs:range xsd:dateTime ;
+     rdfs:comment "Project end date" ;
+     rdfs:label "project end" .
+
+
+###  https://w3id.org/madmp/terms#ethical_issue_description
+:ethical_issue_description rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :DMP ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "To describe ethical issues directly in a DMP" ;
+                           rdfs:label "ethical issue description" .
+
+
+###  https://w3id.org/madmp/terms#ethical_issues_exist
+:ethical_issues_exist rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :DMP ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment """To indicate whether there are ethical issues related to data that this DMP describes.
+Allowed Values:
+
+    yes
+    no
+    unknown""" ;
+                      rdfs:label "ethical issues exist" .
+
+
+###  https://w3id.org/madmp/terms#ethical_issues_report
+:ethical_issues_report rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :DMP ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "To indicate where a protocol from a meeting with an ethical commitee can be found" ;
+                       rdfs:label "ethical issues report" .
+
+
+###  https://w3id.org/madmp/terms#fundingStatus
+:fundingStatus rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Funding ;
+               rdfs:comment """To express different phases of project lifecycle.
+Allowed Values:
+
+    planned
+    applied
+    granted
+    rejected""" ;
+               rdfs:label "funding status" .
+
+
+###  https://w3id.org/madmp/terms#geo_location
+:geo_location rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:string ;
+              rdfs:comment " Physical location of the data expressed using ISO 3166-1 country code. " ;
+              rdfs:label "geo location" .
+
+
+###  https://w3id.org/madmp/terms#identifier
+:identifier rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ID ;
+            rdfs:range xsd:string .
+
+
+###  https://w3id.org/madmp/terms#identifier_type
+:identifier_type rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :ID ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Identifier type for various IDs" ;
+                 rdfs:label "identifier type" .
+
+
+###  https://w3id.org/madmp/terms#language
+:language rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string ;
+          rdfs:comment " A Language used to express, for instance, data encoded in a Dataset. Language Code based on ISO 639-3 " ;
+          rdfs:label "language" .
+
+
+###  https://w3id.org/madmp/terms#license_ref
+:license_ref rdf:type owl:DatatypeProperty ;
+             rdfs:domain :License ;
+             rdfs:range xsd:anyURI ;
+             rdfs:comment "Link to license document." ;
+             rdfs:label "license ref" ;
+             rdfs:seeAlso "https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html" .
+
+
+###  https://w3id.org/madmp/terms#personal_data
+:personal_data rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Dataset ;
+               rdfs:comment "Informs about the presence or absence of personal data in the dataset" ;
+               rdfs:label "personal data" .
+
+
+###  https://w3id.org/madmp/terms#pid_system
+:pid_system rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Host ;
+            rdfs:comment """PID System
+Suggested values:
+
+    ark
+    arxiv
+    bibcode
+    doi
+    ean13
+    eissn
+    handle
+    igsn
+    isbn
+    issn
+    istc
+    lissn
+    lsid
+    pmid
+    purl
+    upc
+    url
+    urn
+    none
+    unknown
+    other""" ;
+            rdfs:label "pid system" .
+
+
+###  https://w3id.org/madmp/terms#preservation_statement
+:preservation_statement rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Dataset ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Preservation statement" ;
+                        rdfs:label "preservation statement" .
+
+
+###  https://w3id.org/madmp/terms#role
+:role rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Contributor ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Type of contributor" ;
+      rdfs:label "role" .
+
+
+###  https://w3id.org/madmp/terms#sensitive_data
+:sensitive_data rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Dataset ;
+                rdfs:comment "Informs about the presence or absence of sensitive data in the dataset" ;
+                rdfs:label "sensitive data" .
+
+
+###  https://w3id.org/madmp/terms#start
+:start rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Project ;
+       rdfs:range xsd:dateTime ;
+       rdfs:comment "Project start date" ;
+       rdfs:label "project start" .
+
+
+###  https://w3id.org/madmp/terms#start_date
+:start_date rdf:type owl:DatatypeProperty ;
+            rdfs:domain :License ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "License start date. If date is set in the future, it indicates embargo period." ;
+            rdfs:label "license start date" .
+
+
+###  https://w3id.org/madmp/terms#storage_type
+:storage_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Host ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The type of storage required" ;
+              rdfs:label "storage type" .
+
+
+###  https://w3id.org/madmp/terms#support_versioning
+:support_versioning rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Host ;
+                    rdfs:comment """Informs of the support for versioning
+  Allowed Values:
+
+    yes
+    no
+    unknown""" ;
+                    rdfs:label "support versioning" .
+
+
+###  https://w3id.org/madmp/terms#url
+:url rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Host ;
+     rdfs:range xsd:anyURI ;
+     rdfs:comment "The URL of the system hosting a distribution of a dataset" ;
+     rdfs:label "url" .
+
+
+###  https://w3id.org/madmp/terms#value
+:value rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Cost ;
+       rdfs:range xsd:integer ;
+       rdfs:comment "Value for cost" ;
+       rdfs:label "value" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/dcat#Dataset
+dcat:Dataset rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/dcat#Distribution
+dcat:Distribution rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
+###  https://w3id.org/madmp/terms#Contact
+:Contact rdf:type owl:Class ;
+         rdfs:subClassOf foaf:Agent ;
+         rdfs:comment "Specifies the party which can provide any information on the DMP. This is not necessarily the DMP creator, and can be a person or an organisation. " ;
+         rdfs:label "Contact" .
+
+
+###  https://w3id.org/madmp/terms#Contributor
+:Contributor rdf:type owl:Class ;
+             rdfs:subClassOf foaf:Agent ;
+             rdfs:comment "For listing all parties involved in the process of the data management described by this DMP, and those parties involved in the creation and management of the DMP itself. " ;
+             rdfs:label "Contributor" .
+
+
+###  https://w3id.org/madmp/terms#Cost
+:Cost rdf:type owl:Class ;
+      rdfs:comment "Provides a list of costs related to data management" ;
+      rdfs:label "Cost" .
+
+
+###  https://w3id.org/madmp/terms#DMP
+:DMP rdf:type owl:Class ;
+     rdfs:comment "Provides high level information about the DMP, e.g. its title, modification date, etc. It is the root of this application profile. The majority of its fields are mandatory. " ;
+     rdfs:label "DMP" .
+
+
+###  https://w3id.org/madmp/terms#Dataset
+:Dataset rdf:type owl:Class ;
+         rdfs:subClassOf dcat:Dataset ;
+         rdfs:comment "This follows the defintion of Dataset in the W3C DCAT specification. Dataset can be understood as a logical entity depicting data, e.g. raw data. It provides high level information about the data. The granularity of dataset depends on a specific setting. In edge cases it can be a file, but also a collection of files in different formats" ;
+         rdfs:label "Dataset" .
+
+
+###  https://w3id.org/madmp/terms#Distribution
+:Distribution rdf:type owl:Class ;
+              rdfs:subClassOf dcat:Distribution ;
+              rdfs:comment "This follows the defintion of Dataset in the W3C DCAT specification. Dataset can be understood as a logical entity depicting data, e.g. raw data. It provides high level information about the data. The granularity of dataset depends on a specific setting. In edge cases it can be a file, but also a collection of files in different formats" ;
+              rdfs:label "Distribution" .
+
+
+###  https://w3id.org/madmp/terms#Funding
+:Funding rdf:type owl:Class ;
+         rdfs:comment "For specifying details on funded projects, e.g. NSF of EC funded projects. " ;
+         rdfs:label "Funding" .
+
+
+###  https://w3id.org/madmp/terms#Host
+:Host rdf:type owl:Class ;
+      rdfs:comment "Provides information on the system where data is stored. It can be used to provide details on a repository where data is deposited, e.g. a Core Trust Seal certified repository located in Europe that uses DOIs. It can also provide details on systems where data is stored and processed during research, e.g. a high performance computer that uses fast storage with two daily backups. " ;
+      rdfs:label "Host" .
+
+
+###  https://w3id.org/madmp/terms#ID
+:ID rdf:type owl:Class ;
+    rdfs:comment "Identifier for various DMP objects" ;
+    rdfs:label "ID" .
+
+
+###  https://w3id.org/madmp/terms#License
+:License rdf:type owl:Class ;
+         rdfs:comment "Used to indicate the license under which data (each specific Distribution) will be made available. It also allows for modelling embargoes. " ;
+         rdfs:label "License" .
+
+
+###  https://w3id.org/madmp/terms#Metadata
+:Metadata rdf:type owl:Class ;
+          rdfs:comment "Provides a pointer to a metadata standard used to describe the data. It does not contain any actual metadata relating to the dataset. " ;
+          rdfs:label "Metadata" .
+
+
+###  https://w3id.org/madmp/terms#Project
+:Project rdf:type owl:Class ;
+         rdfs:comment "Describes the project associated with the DMP, if applicable. It can be used to describe any type of project: that is, not only funded projects, but also internal projects, PhD theses, etc. " ;
+         rdfs:label "Project" .
+
+
+###  https://w3id.org/madmp/terms#SecurityPrivacy
+:SecurityPrivacy rdf:type owl:Class ;
+                 rdfs:comment "Used to indicate any specific requirements related to security and privacy of a specific dataset, e.g. to indicate that data is not anonymized. " ;
+                 rdfs:label "Security Privacy" .
+
+
+###  https://w3id.org/madmp/terms#TechnicalResource
+:TechnicalResource rdf:type owl:Class ;
+                   rdfs:comment "For specifying equipment needed/used to create or process the data, e.g. a microscope, etc. " ;
+                   rdfs:label "Technical Resource" .
+
+
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi

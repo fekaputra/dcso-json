@@ -1,0 +1,90 @@
+{
+  "@context": {
+    
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#" ,
+    "owl": "http://www.w3.org/2002/07/owl#" ,
+    "xml": "http://www.w3.org/XML/1998/namespace" ,
+    "xsd": "http://www.w3.org/2001/XMLSchema#" ,
+    "dcat": "http://www.w3.org/ns/dcat#" ,
+    "madmp": "https://w3id.org/madmp/terms#" ,
+    "foaf": "http://xmlns.com/foaf/0.1/" ,
+    "terms": "http://purl.org/dc/terms/" ,
+    
+    "title": "terms:title",
+    "created": "terms:created",
+    "modified": "terms:modified",
+    "description": "terms:description",
+    "format": "terms:format",
+    "issued": "terms:issued",
+
+    "document": "dcat:hasDocument",
+    "start": "dcat:startDate",
+    "end": "dcat:endDate",
+    "access_url": "dcat:accessUrl",
+    "byte_size": "dcat:byteSize",
+    "download_url": "dcat:downloadURL",
+    "keyword": "dcat:keyword",
+
+    "name": "foaf:name",
+    "mbox": "foaf:mbox",
+    
+    "identifier": "terms:identifier",
+    "type": "madmp:identifier_type",
+
+    "dmp": "madmp:dmp",
+    "dmp_id": "madmp:dmp_id",
+    "language": "madmp:language",
+    "ethical_issues_exist": "madmp:ethical_issues_exist",
+    "ethical_issues_report": "madmp:ethical_issues_report",
+    "ethical_issues_description": "madmp:ethical_issues_description",
+
+    "contact": "madmp:contact",
+    "contact_id": "madmp:contact_id",
+
+    "contributor": "madmp:contributor" ,
+    "contributor_id": "madmp:contributor_id",
+    "role": { "@id": "madmp:role", "@container": "@list" },
+
+    "cost": "madmp:cost",
+    "currency_code": "madmp:currency_code",
+    "value": "madmp:value",
+
+    "project": "madmp:project",
+    "funding": "madmp:funding",
+    "funder_id": "madmp:funder_id",
+    "funder_status": "madmp:funder_status",
+    "grant_id": "madmp:grant_id",
+
+    "dataset": "madmp:dataset",
+    "dataset_id": "madmp:dataset_id",
+    "data_quality_assurance": "madmp:data_quality_assurance",
+    "personal_data": "madmp:personal_data",
+    "sensitive_data": "madmp:sensitive_data",
+
+    "distribution": "madmp:distribution",
+    "available_until": "madmp:available_until",
+    "data_access": "madmp:data_access",
+
+    "host": "madmp:hasHost",
+    "availability": "madmp:availability",
+    "backup_frequency": "madmp:backup_frequency",
+    "backup_type": "madmp:backup_type",
+    "certified_with": "madmp:certified_with",
+    "geo_location": "madmp:geo_location",
+    "pid_system": "madmp:pid_system",
+    "storage_type": "madmp:storage_type",
+    "support_versioning": "madmp:support_versioning",
+    "url": "madmp:url",
+
+    "license": "madmp:license",
+    "license_ref": "madmp:license_ref",
+    "start_date": "madmp:start_date",
+
+    "metadata": "madmp:metadata",
+    "metadata_standard_id": "madmp:metadata_standard_id",
+
+    "security_and_privacy": "madmp:security_and_privacy",
+    "technical_resource": "madmp:technical_resource"
+  }
+}
