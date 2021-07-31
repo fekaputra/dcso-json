@@ -61,6 +61,7 @@
     "data_quality_assurance": "madmp:data_quality_assurance",
     "personal_data": "madmp:personal_data",
     "sensitive_data": "madmp:sensitive_data",
+    "preservation_statement": "madmp:preservation_statement",
 
     "distribution": "madmp:distribution",
     "available_until": "madmp:available_until",
